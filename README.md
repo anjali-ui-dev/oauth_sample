@@ -1,6 +1,6 @@
 ## Laravel 5 example ##
 
-This is a laravel sample project to login using  ## google and facebook ##. 
+This is a sample project to demostrate registeration and login using Goolge & Facebook as Oauth provider.
 
 ### Installation ###
 
