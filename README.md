@@ -1,28 +1,12 @@
-This is a laravel sample project to login using  google and facebook. 
+## Laravel 5 example ##
 
-For running project : dependecies are mentioned below 
+This is a laravel sample project to login using  ** google and facebook **. 
 
-1) Wamp / Xamp server : http://www.wampserver.com/en/
+### Installation ###
 
-2) Install Composer   :  https://getcomposer.org/download/
-
-3) Install Laravel    : composer global require "laravel/installer"
-
-
-After installing Everything run following commands :
-
-1) composer install
-
-2) Refer .env file for database detail
-
-3) php artisan migrate
-
-4) php artisan db:seed
-
-
-For runnning server run following command : 
-
-1) php artisan serve
-
-
-Path for running project : http://localhost:8000
+* `git clone https://github.com/anjali-ui-dev/oauth_sample.git`
+* `cd projectname`
+* `composer install`
+* `php artisan migrate` to create tables
+* `php artisan db:seed` to populate tables
+* `php artisan serve` to start the app on http://localhost:8000/
