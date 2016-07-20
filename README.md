@@ -1,6 +1,6 @@
 ## Laravel 5 example ##
 
-This is a laravel sample project to login using  ** google and facebook **. 
+This is a laravel sample project to login using  ## google and facebook ##. 
 
 ### Installation ###
 
