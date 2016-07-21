@@ -79,14 +79,34 @@ class AuthController extends Controller {
                 ->withInput();
         }
 
-        $data = [
-            'first_name'    => $input['first_name'],
-            'last_name'     => $input['last_name'],
-            'email'         => $input['email'],
-            'password'      => $input['password']
-        ];
+        $userCheck = User::where('email', '=', $input['email'])->first();
 
-        $this->userRepository->register($data);
+        if(!empty($userCheck))
+        {
+            if($userCheck->password == null ) {
+
+                $data = [
+                    'first_name'    => $input['first_name'],
+                    'email'         => $input['email'],
+                    'last_name'     => $input['last_name'],
+                    'password'      => $input['password']
+                ];
+                $this->userRepository->update($userCheck, $data);               
+            } else {
+                  return redirect()->back()
+                        ->withErrors('You are already registered. Please login. ')
+                        ->withInput();
+            }
+        }else {
+            $data = [
+                'first_name'    => $input['first_name'],
+                'last_name'     => $input['last_name'],
+                'email'         => $input['email'],
+                'password'      => $input['password']
+            ];
+
+            $this->userRepository->register($data);
+        }
 
         return redirect()->route('auth.login')
             ->with('status', 'success')
@@ -129,7 +149,23 @@ class AuthController extends Controller {
         $userCheck = User::where('email', '=', $user->email)->first();
         if(!empty($userCheck))
         {
-            $socialUser = $userCheck;
+            $sameSocialId = Social::where('social_id', '=', $user->id)->where('provider', '=', $provider )->first();
+
+            if(empty($sameSocialId))
+            {
+                $socialData = new Social;
+                $socialData->social_id = $user->id;
+                $socialData->provider= $provider;
+                $socialData->user_id= $userCheck->id;
+                $userCheck->social()->save($socialData);
+
+                $socialUser = $userCheck;
+            }
+            else
+            {
+                //Load this existing social user
+                $socialUser = $sameSocialId->user;
+            }
         }
         else
         {

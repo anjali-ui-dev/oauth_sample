@@ -49,6 +49,7 @@
         <br/>
         
         <a href="{{ route('social.redirect', ['provider' => 'google']) }}" class="btn btn-lg btn-primary btn-block google" type="submit">Google</a>
+        <a href="{{ route('social.redirect', ['provider' => 'github']) }}" class="btn btn-lg btn-primary btn-block github" type="submit">Github</a>
         <a href="{{ route('social.redirect', ['provider' => 'facebook']) }}" class="btn btn-lg btn-primary btn-block facebook" type="submit">Facebook</a>
         {!! Form::close() !!}
 

@@ -20,6 +20,12 @@ return [
         'redirect'      => env('FB_REDIRECT')
     ],
 
+    'github' => [
+        'client_id'     => env('GT_ID'),
+        'client_secret' => env('GT_SECRET'),
+        'redirect'      => env('GT_REDIRECT')
+    ],
+
     'google' => [
         'client_id'     => env('GOOGLE_ID'),
         'client_secret' => env('GOOGLE_SECRET'),
