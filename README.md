@@ -1,6 +1,6 @@
 ## Laravel 5 example ##
 
-This is a sample project to demostrate registeration and login using Goolge & Facebook as Oauth provider.
+This is a sample project to demostrate registeration and login using Goolge, github & Facebook as Oauth provider.
 
 ### Installation ###
 
